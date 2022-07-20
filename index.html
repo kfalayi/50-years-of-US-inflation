@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang='en'>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 16px;
+                /* text-align: center; */
+                background-color: #032d48;
+                
+            }
+            h1 {
+                max-width: 600px;
+                margin: 0 auto;
+                color: white; 
+            }
+            h2 {
+                max-width: 600px;
+                margin: 0 auto;
+                color: white; 
+            }
+
+            .hidden{
+                display: none;
+            }
+            
+            a {
+                color: yellow;
+            }
+            .step a {
+                color: black;
+            }
+            em {
+                max-width: 600px;
+                font-size: 12px;
+                margin: 0 auto;
+                color: white; 
+            }
+            .body-text{
+                max-width: 600px;
+                margin: 0 auto;
+                margin-top: 25px;
+                color: white;
+            }
+
+            #chart {
+                position: relative;
+                margin: 0 auto;
+                width: fit-content;
+                top: calc((100vh - 400px) / 2);
+                color: white;
+            }
+            #chart-month{
+                position: relative;
+                margin: 0 auto;
+                width: fit-content;
+                top: calc((100vh - 400px) / 2);
+                color: white;
+            }
+
+            .scrolly {    
+                margin-top: 25px;
+            }
+
+            #text-container {
+                position: relative;
+                width: 100%;
+                margin: 0 auto;
+                
+            }
+
+            .step {
+                min-height: 90vh;
+                width: 100%;
+                margin: 0 auto;
+            }
+
+            .step > .text-box {
+                max-width: 600px;
+                margin: 0 auto;
+                background-color: rgba(255, 255, 255, 0.9);
+                box-shadow: 0 3px 6px rgb(0 0 0 / 16%);
+                padding: 15px;
+                font-size: 14px;
+            }
+
+            div.sticky {
+                position: -webkit-sticky;
+                position: sticky;
+                top:0;
+                height: 100vh;
+                width: 100%;
+
+            }
+            div.text-box{
+                box-shadow: 10px 10px lightblue;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1>What can history data tell us about US' currently rising inflation?</h1>
+        <p class="body-text"><a href="https://kfalayi.github.io/">Kunle Falayi</a></p>
+        <p class="body-text">A brief story of changes in <a href+"https://www.minneapolisfed.org/about-us/monetary-policy/inflation-calculator/consumer-price-index-1913-">America's consumer price index over the last 5 decades</a> shows that oil scarcity is almost always associated inflation spikes in the country.</p>
+
+        <div class='scrolly'>
+            <!-- sticky piece here -->
+            <div class='sticky'>
+               <div id="chart"></div>
+            </div>
+        
+            <!-- step text -->
+            <div id="text-container" class="yr-container">
+                <div class='step' data-index='0'>
+                    <div class="text-box">
+                        <p>The US economy has seen many moments of economic upheaval over the last <span style="background-color:yellow">50 years.</span>  The Consumer Price Index represents the prices of a cross-section of goods.This chart shows the percentage change in the <span style="background-color:yellow">CPI</span> (inflation) over the last 50 years.</p>
+                    </div>
+                    
+                    
+                </div>
+                <div class='step' data-index='1'>
+                    <div class="text-box">
+                        <p>Here are the moments the pockets of Americans took a hit due to inflation skyrocketing in those years.</p>
+                    </div>
+                    
+                </div>
+                <div class='step' data-index='2'>
+                    <div class="text-box">
+                        <p>What would eventually become <span style="background-color:yellow">The Great Inflation</span> reached its first peak of 5.8 percent in 1970. The US economy was also in recession at the time. Even though fall in demand usually leads to fall in inflation, the CPI spike wasn't done.</p>
+                    </div>
+                    
+                </div>
+                <div class='step' data-index='3'>
+                    <div class="text-box">
+                        <p>Just as the US came out of the recession, inflation reached a new high, increasing by 11.1 percent. Just like today, there were gas shortages in the US in 1974 caused by the <span style="background-color:yellow">oil embargo</span> of the Arab members of OPEC as a retaliation for the <span style="background-color:yellow">Arab-Israeli war.</span></p>
+                    </div>
+                    
+                </div>
+                <div class='step' data-index='4'>
+                    <div class="text-box">
+                        <p>The highest inflation of the last 50 years came in 1980 at 13.5 percent. The worth of the dollar had depreciated that <span style="background-color:yellow">$100 in 1970</span> had the same purchasing power as <span style="background-color:yellow">$208.5 in 1980.</span> The rampant inflation which peaked that year was blamed on <span style="background-color:yellow">the oil crisis</span> of the era, <span style="background-color:yellow">government overspending</span> and a policy that hoped that higher prices would lead to higher wages. What followed was a decade of stability as inflation plummetted.</p>
+                    </div>
+                    
+                </div>
+                <div class='step' data-index='5'>
+                    <div class="text-box">
+                        <p>After one decade of inflation consistently plummetting, the <span style="background-color:yellow">US Monetary Policy</span> of the 90s up until the present yielded a stretch of stable inflation from 1990 when inflation rose slightly to 5.4 percent. At the time, an <a href="https://www.nytimes.com/1987/02/23/business/report-warns-of-oil-crisis-in-1990-s.html">increasing dependence on oil import</a> threatened an oil crisis.</p>
+                    </div>
+                    
+                </div>
+                <!-- ...more steps -->
+            </div>
+        
+        </div>
+
+        <p class="body-text">Inflation currently stands at a 40-year high. The June 2022 figures just released shows a 9.1 percent year-on-year inflation rate, the highest since 1981.</p>
+        
+        <div class='scrolly'>
+            <div class='sticky'>
+                <h2>12-month CPI percent change shows why everyone is worried</h2>
+                <p class="body-text">Month over month CPI of all items in U.S. city average.</p>
+                <div id="chart-month"></div>
+                <!-- <p><em>Source: U.S.Bureau of Labour Statistics</em></p> -->
+            </div>
+
+            <!-- step text -->
+            <div id="text-container" class="month-container">
+                <div class='step' data-index='0'>
+                    <div class="text-box">
+                        <p>Even though the current upheaval in the global energy industry is not the immediate cause of the current U.S. inflation, it may worsen it, experts say. Recent news have shown that other countries globally face similar economic troubles as the ban on <span style="background-color:yellow">Russian oil</span> further spikes oil and food prices.</p>
+                        <p>The US economy has seen many moments of economic upheaval over the last <span style="background-color:yellow">50 years.</span>  The Consumer Price Index represents the prices of a cross-section of goods.This chart shows the percentage change in the <span style="background-color:yellow">CPI</span> (inflation) over the last 50 years.</p>
+                    </div>
+                    
+                    
+                </div>
+                <div class='step' data-index='1'>
+                    <div class="text-box">
+                        <p>From 5.4 in June 2021, inflation has gradually climbed to 9.1 as economists believe the worst is yet to come. Some experts have hinted at possiblity of a <span style="background-color:yellow">runaway inflation.</span></p>
+                    </div>
+                    
+                </div>
+                <div class='step' data-index='2'>
+                    <div class="text-box">
+                        <p>This inflation rate means that <span style="background-color:yellow">$1 in June 2021</span> has the same purchasing power as <span style="background-color:yellow">$1.09 in June 2022.</span></p>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <p class="body-text">While the dollar has lost some of its purchasing power domestically, it has increased in value against major international currencies. For instance, <a href="https://www.npr.org/2022/07/16/1111572775/dollar-euro-exchange-rate-parity">for the first time in 20 years,</a> the dollar achieved rate parity against the Euro. </p>
+        s
+        <!-- include d3 -->
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+        <!-- include enter view package -->
+        <script src="https://unpkg.com/enter-view"></script>
+        <!-- your script -->
+        <script src="script.js"></script>
+        <script src="script2.js"></script>
+
+
+        
+    </body>
+</html>
+
+
+
