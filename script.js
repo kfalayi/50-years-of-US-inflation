@@ -7,6 +7,7 @@
     let cpiLine; // create a variable in the outermost scope where we can store the lines we draw
     let label;
 
+
     const svg = d3
         .select("#chart")
         .append("svg")
@@ -20,14 +21,16 @@
     const xPositionScale = d3.scaleTime().range([0, width])
     const yPositionScale = d3.scaleLinear().range([height, 0])
     const parseDate = d3.timeParse("%Y")
+    var formatPercent = d3.format(".0%");
+
 
 
     const line = d3
         .line()
         .x(d => xPositionScale(d.year))
-        .y(d => yPositionScale(d.annualpctChange))    
+        .y(d => yPositionScale(d.annualpctChange))   
 
-    d3.csv("data/cpiNew.csv")
+    d3.csv("data/cpi.csv")
         .then(ready)
         .catch(function (error) {
             console.log("Failed with", error)
@@ -57,7 +60,7 @@
 
 
 
-        const yAxis = d3.axisLeft(yPositionScale)
+        const yAxis = d3.axisLeft(yPositionScale).tickFormat(formatPercent);
         svg.append("g")
             .attr("class", "axis y-axis")
             .call(yAxis)
@@ -70,55 +73,54 @@
             .attr("transform", "translate(0," + height + ")")
             .call(xAxis)
 
-
         label = svg.append('text') // assigning my label to the variable up top
             .text("The first peak of the Great Inflation")
             .attr('x', xPositionScale(parseDate(1970)))
-            .attr('y', yPositionScale(5.8))
+            .attr('y', yPositionScale(0.058))
             .attr('class', 'label hidden');
         
         label2 = svg.append('text') // assigning my label to the variable up top
             .text("The Arab oil embargo catapulted inflation to double digit")
             .attr('x', xPositionScale(parseDate(1974)))
-            .attr('y', yPositionScale(11.1))
+            .attr('y', yPositionScale(0.111))
             .attr('class', 'label hidden');
 
         label3 = svg.append('text') // assigning my label to the variable up top
             .text("The peak of the Great inflation")
             .attr('x', xPositionScale(parseDate(1980)))
-            .attr('y', yPositionScale(13.5))
+            .attr('y', yPositionScale(0.135))
             .attr('class', 'label hidden');
 
         label4 = svg.append('text') // assigning my label to the variable up top
             .text("An inflation spike which preceeded a long era of stability")
             .attr('x', xPositionScale(parseDate(1990)))
-            .attr('y', yPositionScale(5.4))
+            .attr('y', yPositionScale(0.054))
             .attr('class', 'label hidden');
 
         dot = svg.append('circle') // assigning my label to the variable up top
             .attr('cx', xPositionScale(parseDate(1970)))
-            .attr('cy', yPositionScale(5.8))
+            .attr('cy', yPositionScale(0.058))
             .attr("r", 3)
             .style("fill", "red")
             .attr('class', 'label hidden');
 
         dot2 = svg.append('circle') // assigning my label to the variable up top
             .attr('cx', xPositionScale(parseDate(1974)))
-            .attr('cy', yPositionScale(11.1))
+            .attr('cy', yPositionScale(0.111))
             .attr("r", 3)
             .style("fill", "red")
             .attr('class', 'label hidden');
         
         dot3 = svg.append('circle') // assigning my label to the variable up top
             .attr('cx', xPositionScale(parseDate(1980)))
-            .attr('cy', yPositionScale(13.5))
+            .attr('cy', yPositionScale(0.135))
             .attr("r", 3)
             .style("fill", "red")
             .attr('class', 'label hidden');
             
         dot4 = svg.append('circle') // assigning my label to the variable up top
             .attr('cx', xPositionScale(parseDate(1990)))
-            .attr('cy', yPositionScale(5.4))
+            .attr('cy', yPositionScale(0.054))
             .attr("r", 3)
             .style("fill", "red")
             .attr('class', 'label hidden');
@@ -142,7 +144,6 @@
         if(step_index === 0){
             //animating my lines into view
             if(direction==='forward'){
-                console.log(cpiLine)
                 d3.select("path")
                 .transition()
                 .duration(2000)
@@ -171,10 +172,8 @@
         }
 
         if(step_index === 2){
-            console.log(direction)
             if(direction==='forward'){
                 // lines.style('opacity', 1).style('stroke-width', 1);
-                console.log(label)
                 label.classed('hidden', false);
             } else{
                 label.classed('hidden', true);
@@ -224,7 +223,7 @@
                 dot3.classed('hidden', true);
             }
         }
-
+        console.log(dot3)
 
         if(step_index === 5){
             if(direction==='forward'){

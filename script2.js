@@ -21,7 +21,7 @@
     const yPositionScale = d3.scaleLinear().range([height, 0])
     const xPositionScale = d3.scaleTime().range([0, width])
     const parseDate = d3.timeParse("%d-%m-%y")
-
+    var formatPercent = d3.format(".0%");
 
 
     const line = d3
@@ -30,7 +30,7 @@
         .y(d => yPositionScale(d.cpi))
 
 
-    d3.csv("data/cpi2122.csv")
+    d3.csv("data/cpi2.csv")
         .then(ready)
         .catch(function (error) {
             console.log("Failed with", error)
@@ -42,8 +42,6 @@
             d.month = parseDate(d.month)
             d.cpi = +d["cpi"]
         })
-
-        console.log(datapoints)
 
 
         // Update the scales
@@ -62,7 +60,7 @@
             // .style("stroke", d3.color("red") );
 
 
-        const yAxis = d3.axisLeft(yPositionScale)
+        const yAxis = d3.axisLeft(yPositionScale).tickFormat(formatPercent);
         svg.append("g")
             .attr("class", "axis y-axis")
             .call(yAxis)
@@ -85,7 +83,6 @@
         if(step_index === 0){
             //animating my lines into view
             if(direction==='forward'){
-                console.log(cpiLine)
                 // d3.select('.month-container').select(cip)
                 cpiLine
                 .transition()
